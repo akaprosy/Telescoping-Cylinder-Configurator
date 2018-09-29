@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Telescoping Cylinder Configurator</title>
+
+
+</head>
+
+<body>
+<h1>Telescoping Cylinder Configurator</h1>
+
+<img src="teleCylinders.png">
+<p id="partnumber"></p>
+<h2>Enter Sizes in Inches</h2>
+<form>
+ Stroke 'A':<input id="stroke" type="number" required=""><br>
+  Closed Length 'B':<input id="closed" type="number"><br>
+  Extended Length 'C':<input id="extended" type="number" required=""><br>
+  Base Eye Width 'D': <input id="basewidth" type="number" required=""><br>
+  Base Pin Diameter 'E':<input id="basepin" type="number" required=""><br>
+  Rod Eye Width 'F':<input id="rodwidth" type="number" required=""><br>
+  Rod Eye Diameter 'G':<input id="rodpin" type="number" required=""><br>
+  
+<input type="submit" onclick="submitInfo()" name="Submit" required="">
+
+</form>
+<script>
+/*Get value from html input*/
+
+function submitInfo() {
+
+let strokeLength = document.getElementById("stroke").value;
+let closedLength = document.getElementById("closed").value;
+let extendedLength = document.getElementById("extended").value;
+let baseEyeWidth = document.getElementById("basewidth").value;
+let baseEyeDia = document.getElementById("basepin").value;
+let rodEyeWidth = document.getElementById("rodwidth").value;
+let rodPinDia = document.getElementById("rodpin").value;
+
+/*Conditional for part#MHP100-53-84P*/
+
+if ((strokeLength >= 83) && (strokeLength <= 85) && (closedLength >= 38) && (closedLength <=40) && (baseEyeWidth == 7) && (baseEyeDia == 2) && (rodEyeWidth == 2) && (rodPinDia == 2)) {
+  let mhp1005384p = document.getElementById('partnumber');
+	mhp1005384p.innerHTML = "Order Part#MHP100-53-84P";
+}	
+
+
+    else if ((strokeLength >= 83) && (strokeLength <= 85) && (extendedLength >= 121) && (extendedLength <=123) && (baseEyeWidth == 7) && (baseEyeDia == 2) && (rodEyeWidth == 2) && (rodPinDia == 2)) {
+   let mhp1005384p = document.getElementById('partnumber');
+  mhp1005384p.innerHTML = "Order Part#MHP100-53-84P";
+}
+
+    else if ((extendedLength >= 121) && (extendedLength <= 123) && (closedLength >= 38) && (closedLength <=40) && (baseEyeWidth == 7) && (baseEyeDia == 2) && (rodEyeWidth == 2) && (rodPinDia == 2)) {
+     let mhp1005384p = document.getElementById('partnumber');
+  mhp1005384p.innerHTML = "Order Part#MHP100-53-84P";
+}
+
+    else {
+    let mhp1005384p = document.getElementById('partnumber');
+  mhp1005384p.innerHTML = "No Match";
+    }
+
+}
+submitInfo();
+
+</script>
+
+</body>
+</html>
